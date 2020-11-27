@@ -77,3 +77,34 @@ def delete_user(user_id):
     db.session.commit()
     return redirect('/')
 
+@app.route('/users/<int:user_id>/posts/new', methods=['GET'])
+def show_post_form(user_id):
+    ''' Show form to add post for a user '''
+    user = User.query.get_or_404(user_id)
+    return render_template('add_post.html',user=user)
+
+
+@app.route('/users/<int:user_id>/posts/new', methods=['POST'])
+def handle_add_form(user_id):
+    ''' Handle add form; add post and redirect to the user detail page'''
+    user = User.query.get_or_404(user_id)
+    title = request.form['title']
+    content = request.form['content']
+    # print('~~~~~~~~~~~~~~~~~~~~~~~~')
+    # print(title,content)
+    # print('~~~~~~~~~~~~~~~~~~~~~~~~')
+    return redirect(f'/users/{user_id}')
+
+# @app.route('/posts/<int:post_id>')
+# def show_post(post_id):
+    ''' show a post. Show buttons to edit and delete the post'''
+    
+
+# @app.route('/posts/<int:post_id>/edit', methods=['POST'])
+# def edit_post(post_id):
+    '''Shows fom to edit a post, and to cancel (back to user page) '''
+
+
+# @app.route('/posts/<int:post_id>/delete', methods=['POST'])
+# def delete_post():
+    ''' Delete the post'''
