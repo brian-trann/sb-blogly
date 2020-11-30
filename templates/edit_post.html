@@ -1,0 +1,17 @@
+
+{% extends 'base.html' %}
+
+{% block title %}Edit Post{% endblock %}
+
+{% block content %}
+
+<h2>Edit a post</h2>
+<form method="POST">
+    <p>Title:     <input required placeholder="{{ post.title }}" name="title"></p>
+    <p>Content:  <input required  placeholder="{{post.content}}" name="content"></p>
+    
+    
+    <a href="/posts/{{post.id}}" class="btn btn-outline-info">Cancel</a>
+    <button  class="btn btn-success" >Save</button>
+</form>
+{% endblock %}

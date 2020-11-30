@@ -1,19 +1,23 @@
 {% extends 'base.html' %}
 
-{% block title %}Users{% endblock %}
+{% block title %}Blogly Home{% endblock %}
 
 {% block content %}
 
-    <h1>Users</h1>
-<ul>
-    {% for user in users %}
-    <li><a href="/users/{{user.id}}"> {{user.first_name}} {{user.last_name}} </a></li>
-    {% endfor %}
-</ul>
+<h1>Posts</h1>
 
-<form action="/users/new">
-    <button class="btn btn-info">Add User</button>
-</form>
+    {% for post in posts %}
+    <a href="/posts/{{post.id}}" class="h2 text-dark">{{post.title}} </a>
+    <p class="">{{post.content}}</p>
+    <small class="text-muted">By {{post.user.full_name}} on {{post.friendly_date}}</small>
+    <br>
+    <br>
+    {% endfor %}
+    
+<br>
+<a href="/users" class="btn btn-success">Users</a>
+
+
 
 
 {% endblock %}

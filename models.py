@@ -42,3 +42,9 @@ class Post(db.Model):
 
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
 
+    @property
+    def friendly_date(self):
+        '''return a parsed date '''
+        date = self.created_at.strftime("%a %b %-d  %Y, %-I:%M %p")
+        return
+

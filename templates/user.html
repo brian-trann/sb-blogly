@@ -18,14 +18,15 @@
 
 <a class="btn button btn-info" href="/">Go back</a>
 <div class="my-3">
+    
     <h3>Posts</h3>
-    <p>Will need to post this user's posts into a unorered list</p>
+    <p>Maybe add logic to check for user posts. if no posts, display no posts</p>
     <ul>
-        for user in users
-        <li><a href=""> POSTS</a></li>
-        endfor
+        {% for post in user.posts %}
+        <li><a href="/posts/{{post.id}}"> {{post.title}}</a></li>
+        {% endfor %}
     </ul>
-    <a href="/users/{{user.id}}/posts/new" class="btn button btn-info">Add Post</a>
+    <a href="/users/{{user.id}}/posts/new" class="btn button btn-success">Add Post</a>
 </div>
 
 {% endblock %}
