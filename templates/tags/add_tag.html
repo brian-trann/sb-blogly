@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Add a tag{% endblock %}
+
+{% block content %}
+<h1>Add TAG!</h1>
+
+<form action="/tags/new" method="POST">
+    <p>Name    <input required name="name"></p>
+    <button class="btn btn-success" >Add</button>
+</form>
+<a href="/"" class="btn alert-info mt-3" >Go back</a>
+{% endblock %}
+
+
+

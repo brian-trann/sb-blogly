@@ -1,4 +1,4 @@
 ## Springboard - Blogly
 
-This is was a quick exercise to practice using Flask with SQLAlchemy and PostgreSQL.
+Adding additional functionality: Tags. Tags has a many-to-many relationship to Posts.
 

@@ -4,20 +4,24 @@
 
 {% block content %}
 
-<h1>Posts</h1>
-
+<h1>Recent Posts</h1>
+<div class="my-3 mb-4">
     {% for post in posts %}
-    <a href="/posts/{{post.id}}" class="h2 text-dark">{{post.title}} </a>
+    <a href="/posts/{{post.id}}" class="h3 mb-2 text-dark">{{post.title}} </a>
     <p class="">{{post.content}}</p>
-    <small class="text-muted">By {{post.user.full_name}} on {{post.friendly_date}}</small>
+    {% if post.tags %}
+    <p class="small">Tags: 
+        {% for tag in post.tags %}
+        <a href="/tags/{{tag.id}}" class="btn btn-primary p-0 btn-sm font-italic font-weight-light">{{ tag.name }}</a>
+        {% endfor %}
+    </p>
+    {% endif %}
+    <a class="text-muted small" href="/users/{{ post.user.id }}" >By {{post.user.full_name}} on {{post.friendly_date}}</a>
     <br>
     <br>
     {% endfor %}
-    
-<br>
-<a href="/users" class="btn btn-success">Users</a>
 
-
+</div>
 
 
 {% endblock %}

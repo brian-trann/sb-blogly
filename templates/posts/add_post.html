@@ -8,10 +8,23 @@
 <form action="/users/{{user.id}}/posts/new" method="POST">
     <p>Title    <input required name="title"></p>
     <p>Content  <input required name="content"></p>
+    <p>Tags:</p>
+    <ul>
+        
+        {% for tag in tags %}
+        <div class="checkbox">
+            <label><input class="" type="checkbox" name="tags" value="{{tag.id}}"> {{tag.name}}</label>
+        </div>
+        {% endfor %}
+    </ul>
+    
     
     <button class="btn btn-success" >Add</button>
 </form>
+
 <a href="/users/{{user.id}}" class="btn alert-info mt-3" >Go back</a>
+
+
 {% endblock %}
 
 

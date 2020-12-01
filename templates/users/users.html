@@ -10,11 +10,6 @@
     <li><a href="/users/{{user.id}}"> {{user.first_name}} {{user.last_name}} </a></li>
     {% endfor %}
 </ul>
-
-<form action="/users/new">
-    <button class="btn btn-info">Add User</button>
-</form>
-
-<a href="/" class="btn btn-success">Home</a>
+<a href="/users/new" class="btn btn-success">Add a User</a>
 
 {% endblock %}

@@ -9,8 +9,16 @@
 <form method="POST">
     <p>Title:     <input required placeholder="{{ post.title }}" name="title"></p>
     <p>Content:  <input required  placeholder="{{post.content}}" name="content"></p>
-    
-    
+    {% if tags %}
+    <p>Tags:</p>
+    <ul>
+        {% for tag in tags %}
+        <div class="checkbox">
+            <label><input class="" type="checkbox" name="tags" value="{{tag.id}}"> {{tag.name}}</label>
+        </div>
+        {% endfor %}
+    </ul>
+    {% endif %}
     <a href="/posts/{{post.id}}" class="btn btn-outline-info">Cancel</a>
     <button  class="btn btn-success" >Save</button>
 </form>

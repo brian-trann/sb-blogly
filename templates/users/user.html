@@ -13,19 +13,19 @@
         <a class="btn button btn-warning " href="/users/{{user.id}}/edit">Edit</a>
         <button class="btn button btn-danger ">Delete</button>
     </form>
-    
 </div>
-
-<a class="btn button btn-info" href="/">Go back</a>
 <div class="my-3">
     
+    {% if user.posts %}
     <h3>Posts</h3>
-    <p>Maybe add logic to check for user posts. if no posts, display no posts</p>
     <ul>
         {% for post in user.posts %}
         <li><a href="/posts/{{post.id}}"> {{post.title}}</a></li>
         {% endfor %}
     </ul>
+    {% else %}
+    <h4 class="my-3">This user has no posts yet</h4>
+    {% endif %}
     <a href="/users/{{user.id}}/posts/new" class="btn button btn-success">Add Post</a>
 </div>
 
