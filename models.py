@@ -65,4 +65,4 @@ class Tag(db.Model):
     __tablename__ = "tags"
     id = db.Column(db.Integer,primary_key=True, autoincrement=True)
     name = db.Column(db.String(50), nullable=False, unique=True)
-    posts = db.relationship('Post', secondary='posts_tags',cascade='all,delete',backref='tags')
+    posts = db.relationship('Post',backref='tags', secondary='posts_tags',cascade='all,delete')
